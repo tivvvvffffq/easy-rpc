@@ -8,7 +8,7 @@ import com.nxj.common.service.UserService;
  */
 public class ConsumerExample {
     public static void main(String[] args) {
-        UserService userService = null;
+        UserService userService = new UserServiceStaticProxy();
         User user = new User();
         user.setName("tiv");
 
