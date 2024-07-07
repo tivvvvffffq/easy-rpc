@@ -6,6 +6,10 @@ import io.vertx.core.Vertx;
  * 基于Vert.x的Http服务器
  */
 public class VertxHttpServer implements HttpServer{
+    /**
+     * 启动服务器
+     * @param port
+     */
     @Override
     public void doStart(int port) {
         // 获取Vert.x实例，创建Http服务器
@@ -13,15 +17,7 @@ public class VertxHttpServer implements HttpServer{
         io.vertx.core.http.HttpServer server = vertx.createHttpServer();
 
         // 处理请求
-        server.requestHandler(request -> {
-            // 处理Http请求
-            System.out.println("Received request: " + request.method() + " " + request.uri());
-
-            // 发送Http响应
-            request.response()
-                    .putHeader("content-type", "text/plain")
-                    .end("Hello from Vert.x Http Server.");
-        });
+        server.requestHandler(new HttpServerHandler());
 
         // 启动服务器，监听指定端口
         server.listen(port, result -> {
@@ -31,7 +27,5 @@ public class VertxHttpServer implements HttpServer{
                 System.out.println("Failed to start server " + result.cause());
             }
         });
-
-
     }
 }
