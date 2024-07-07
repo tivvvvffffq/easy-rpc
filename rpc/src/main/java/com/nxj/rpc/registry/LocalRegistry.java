@@ -1,4 +1,4 @@
-package com.nxj.registry;
+package com.nxj.rpc.registry;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

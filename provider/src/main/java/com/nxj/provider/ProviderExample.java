@@ -1,9 +1,9 @@
 package com.nxj.provider;
 
 import com.nxj.common.service.UserService;
-import com.nxj.registry.LocalRegistry;
-import com.nxj.server.HttpServer;
-import com.nxj.server.VertxHttpServer;
+import com.nxj.rpc.registry.LocalRegistry;
+import com.nxj.rpc.server.HttpServer;
+import com.nxj.rpc.server.VertxHttpServer;
 
 /**
  * 服务提供者示例

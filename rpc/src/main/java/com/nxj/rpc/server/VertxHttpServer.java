@@ -1,4 +1,4 @@
-package com.nxj.server;
+package com.nxj.rpc.server;
 
 import io.vertx.core.Vertx;
 
