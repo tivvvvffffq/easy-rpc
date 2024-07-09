@@ -1,7 +1,6 @@
 package com.nxj.rpc.proxy;
 
 import com.nxj.rpc.RpcApplication;
-import org.checkerframework.checker.units.qual.C;
 
 import java.lang.reflect.Proxy;
 

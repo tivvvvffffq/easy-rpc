@@ -3,7 +3,6 @@ package com.nxj.consumer;
 import com.nxj.common.model.User;
 import com.nxj.common.service.UserService;
 import com.nxj.rpc.config.RpcConfig;
-import com.nxj.rpc.proxy.ServiceProxy;
 import com.nxj.rpc.proxy.ServiceProxyFactory;
 import com.nxj.rpc.utils.ConfigUtils;
 
