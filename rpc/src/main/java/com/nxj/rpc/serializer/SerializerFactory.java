@@ -1,29 +1,20 @@
 package com.nxj.rpc.serializer;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.nxj.rpc.spi.SpiLoader;
 
 /**
  * 序列化器工厂
  */
 public class SerializerFactory {
 
-    /**
-     * 单例序列化器映射
-     */
-    private static final Map<String, Serializer> KEY_SERIALIZAR_MAP = new HashMap<String, Serializer>() {
-        {
-            put(SerializerKeys.JDK, new JDKSerializer());
-            put(SerializerKeys.JSON, new JsonSerializer());
-            put(SerializerKeys.KRYO, new KryoSerializer());
-            put(SerializerKeys.HESSIAN, new HessianSerializer());
-        }
-    };
+    static {
+        SpiLoader.load(Serializer.class);
+    }
 
     /**
      * 默认序列化器-原生JDK
      */
-    private static final Serializer DEFAULT_SERIALIZER = KEY_SERIALIZAR_MAP.get(SerializerKeys.JDK);
+    private static final Serializer DEFAULT_SERIALIZER = SpiLoader.getInstance(Serializer.class, "jdk");
 
     /**
      * 获取实例
@@ -31,6 +22,6 @@ public class SerializerFactory {
      * @return
      */
     public static Serializer getInstance(String key) {
-        return KEY_SERIALIZAR_MAP.getOrDefault(key, DEFAULT_SERIALIZER);
+        return SpiLoader.getInstance(Serializer.class, key);
     }
 }

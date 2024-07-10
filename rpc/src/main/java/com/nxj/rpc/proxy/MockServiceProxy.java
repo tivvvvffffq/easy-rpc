@@ -23,7 +23,7 @@ public class MockServiceProxy implements InvocationHandler {
             if(type == boolean.class) {
                 return false;
             } else if (type == short.class) {
-                return (short)0;
+                return (short) 0;
             } else if (type == int.class) {
                 return 0;
             } else if (type == long.class) {
