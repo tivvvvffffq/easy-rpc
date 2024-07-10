@@ -1,7 +1,10 @@
 package com.nxj.rpc;
 
+import com.nxj.rpc.config.RegistryConfig;
 import com.nxj.rpc.config.RpcConfig;
 import com.nxj.rpc.constant.RpcConstant;
+import com.nxj.rpc.registry.Registry;
+import com.nxj.rpc.registry.RegistryFactory;
 import com.nxj.rpc.utils.ConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,6 +22,12 @@ public class RpcApplication {
     public static void init(RpcConfig newRpcConfig) {
         rpcConfig = newRpcConfig;
         log.info("rpc init, config = {}", rpcConfig.toString());
+
+        // 注册中心初始化
+        RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
+        Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
+        registry.init(registryConfig);
+        log.info("registry init, config = {}", registryConfig.toString());
     }
 
     /**

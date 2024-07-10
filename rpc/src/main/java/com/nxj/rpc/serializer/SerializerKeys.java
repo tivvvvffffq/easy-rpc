@@ -1,7 +1,7 @@
 package com.nxj.rpc.serializer;
 
 /**
- * 序列化器键常量
+ * 序列化器 key 常量
  */
 public interface SerializerKeys {
     String JDK = "jdk";

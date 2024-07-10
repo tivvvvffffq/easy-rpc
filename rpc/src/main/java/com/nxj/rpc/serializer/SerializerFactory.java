@@ -14,7 +14,7 @@ public class SerializerFactory {
     /**
      * 默认序列化器-原生JDK
      */
-    private static final Serializer DEFAULT_SERIALIZER = SpiLoader.getInstance(Serializer.class, "jdk");
+    private static final Serializer DEFAULT_SERIALIZER = SpiLoader.getInstance(Serializer.class, SerializerKeys.JDK);
 
     /**
      * 获取实例
