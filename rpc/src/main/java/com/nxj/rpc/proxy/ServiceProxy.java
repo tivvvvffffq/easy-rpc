@@ -5,7 +5,6 @@ import cn.hutool.http.HttpResponse;
 import com.nxj.rpc.RpcApplication;
 import com.nxj.rpc.model.RpcRequest;
 import com.nxj.rpc.model.RpcResponse;
-import com.nxj.rpc.serializer.JDKSerializer;
 import com.nxj.rpc.serializer.Serializer;
 import com.nxj.rpc.serializer.SerializerFactory;
 

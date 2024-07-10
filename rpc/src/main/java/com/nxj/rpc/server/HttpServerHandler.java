@@ -4,7 +4,6 @@ import com.nxj.rpc.RpcApplication;
 import com.nxj.rpc.model.RpcRequest;
 import com.nxj.rpc.model.RpcResponse;
 import com.nxj.rpc.registry.LocalRegistry;
-import com.nxj.rpc.serializer.JDKSerializer;
 import com.nxj.rpc.serializer.Serializer;
 import com.nxj.rpc.serializer.SerializerFactory;
 import io.vertx.core.Handler;
