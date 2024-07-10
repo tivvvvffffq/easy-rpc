@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * SPI加载器
+ * SPI 加载器
  */
 @Slf4j
 public class SpiLoader {
@@ -30,12 +30,12 @@ public class SpiLoader {
     private static Map<String, Object> instanceCache = new ConcurrentHashMap<>();
 
     /**
-     * 系统SPI目录
+     * 系统 SPI 目录
      */
     private static final String RPC_SYSTEM_SPI_DIR = "META-INF/rpc/system/";
 
     /**
-     * 客制化SPI目录
+     * 客制化 SPI 目录
      */
     private static final String RPC_CUSTOM_SPI_DIR = "META-INF/rpc/custom/";
 
@@ -50,7 +50,7 @@ public class SpiLoader {
     private static final List<Class<?>> LOAD_CLASS_LIST = Arrays.asList(Serializer.class);
 
     /**
-     * 加载所有SPI
+     * 加载所有 SPI
      */
     public static void loadAll() {
         log.info("加载所有 SPI.");
@@ -60,7 +60,7 @@ public class SpiLoader {
     }
 
     /**
-     * 加载指定类型SPI
+     * 加载指定类型 SPI
      * @param loadClass
      * @return
      */

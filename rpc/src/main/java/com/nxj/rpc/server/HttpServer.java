@@ -1,7 +1,7 @@
 package com.nxj.rpc.server;
 
 /**
- * Http服务器接口
+ * Http 服务器接口
  */
 public interface HttpServer {
 

@@ -3,7 +3,7 @@ package com.nxj.rpc.serializer;
 import java.io.*;
 
 /**
- * 原生JDK序列化器
+ * 原生 JDK 序列化器
  */
 public class JDKSerializer implements Serializer{
     @Override

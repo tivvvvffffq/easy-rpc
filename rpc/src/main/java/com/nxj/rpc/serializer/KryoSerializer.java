@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 /**
- * Kryo序列化器
+ * Kryo 序列化器
  */
 public class KryoSerializer implements Serializer{
 

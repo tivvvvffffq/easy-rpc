@@ -3,7 +3,7 @@ package com.nxj.rpc.server;
 import io.vertx.core.Vertx;
 
 /**
- * 基于Vert.x的Http服务器
+ * 基于 Vert.x 的 Http 服务器
  */
 public class VertxHttpServer implements HttpServer{
     /**

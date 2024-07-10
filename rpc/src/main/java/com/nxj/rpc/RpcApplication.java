@@ -6,7 +6,7 @@ import com.nxj.rpc.utils.ConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- *
+ * RPC 框架应用
  */
 @Slf4j
 public class RpcApplication {
@@ -37,7 +37,7 @@ public class RpcApplication {
     }
 
     /**
-     * 获取RPC配置
+     * 获取 RPC 配置
      * @return
      */
     public static RpcConfig getRpcConfig() {

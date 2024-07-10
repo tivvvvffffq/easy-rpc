@@ -4,7 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.setting.dialect.Props;
 
 /**
- * 配置工具类，使用hutool工具快速读取properties文件
+ * 配置工具类，使用 hutool 工具快速读取 properties 文件
  */
 public class ConfigUtils {
 

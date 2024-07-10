@@ -7,7 +7,7 @@ import com.nxj.rpc.model.RpcResponse;
 import java.io.IOException;
 
 /**
- * JSON序列化器
+ * JSON 序列化器
  */
 public class JsonSerializer implements Serializer{
 
