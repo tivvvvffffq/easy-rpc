@@ -19,7 +19,7 @@ public class ProviderExample {
         // 框架初始化
         RpcApplication.init();
 
-        // 注册服务
+        // 注册服务到本地
         String serviceName = UserService.class.getName();
         LocalRegistry.register(serviceName, UserServiceImpl.class);
 
