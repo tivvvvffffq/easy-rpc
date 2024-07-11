@@ -15,6 +15,7 @@ import java.time.Duration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 /**
@@ -95,6 +96,17 @@ public class EtcdRegistry implements Registry{
     public void destroy() {
         // 服务销毁，释放资源
         System.out.println("当前节点下线。");
+
+        // 下线节点
+        for(String key: localRegisterNodeKeySet) {
+            try {
+                kvClient.delete(ByteSequence.from(key, StandardCharsets.UTF_8)).get();
+            } catch (Exception e) {
+                throw new RuntimeException(key + " 节点下线失败", e);
+            }
+        }
+
+        // 释放资源
         if(kvClient != null) {
             kvClient.close();
         }
