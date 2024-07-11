@@ -62,7 +62,7 @@ public class EtcdRegistry implements Registry{
         try {
             // 前缀查询
             GetOption getOption = GetOption.builder().isPrefix(true).build();
-            List<KeyValue> kvs = kvClient.get(ByteSequence.from(searchPrefix, StandardCharsets.UTF_8)).get().getKvs();
+            List<KeyValue> kvs = kvClient.get(ByteSequence.from(searchPrefix, StandardCharsets.UTF_8), getOption).get().getKvs();
 
             // 解析服务信息
             return kvs.stream().map(keyValue -> {

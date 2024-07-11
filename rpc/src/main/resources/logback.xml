@@ -1,0 +1,17 @@
+<configuration>
+    <!-- 定义控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 设置根日志级别为INFO -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+    <!-- 设置Netty和gRPC的日志级别为INFO，以忽略调试信息 -->
+    <logger name="io.netty" level="INFO" />
+    <logger name="io.grpc.netty" level="INFO" />
+</configuration>
