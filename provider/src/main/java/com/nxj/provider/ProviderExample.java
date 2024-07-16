@@ -8,8 +8,7 @@ import com.nxj.rpc.model.ServiceMetaInfo;
 import com.nxj.rpc.registry.LocalRegistry;
 import com.nxj.rpc.registry.Registry;
 import com.nxj.rpc.registry.RegistryFactory;
-import com.nxj.rpc.server.HttpServer;
-import com.nxj.rpc.server.VertxHttpServer;
+import com.nxj.rpc.server.tcp.VertxTcpServer;
 
 /**
  * 服务提供者示例
@@ -39,8 +38,8 @@ public class ProviderExample {
             throw new RuntimeException(e);
         }
 
-        // 启动web服务
-        HttpServer httpServer = new VertxHttpServer();
-        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+        // 启动 TCP 服务
+        VertxTcpServer vertxTcpServer = new VertxTcpServer();
+        vertxTcpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
     }
 }
