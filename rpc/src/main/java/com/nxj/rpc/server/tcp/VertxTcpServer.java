@@ -1,10 +1,14 @@
 package com.nxj.rpc.server.tcp;
 
 import com.nxj.rpc.server.HttpServer;
+import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.net.NetServer;
+import io.vertx.core.parsetools.RecordParser;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class VertxTcpServer implements HttpServer {
 
     /**
@@ -26,15 +30,28 @@ public class VertxTcpServer implements HttpServer {
 
         // 处理请求
         server.connectHandler(socket -> {
-            // 处理连接
-            socket.handler(buffer -> {
-                // 处理接收的字节数组
-                byte[] requestData = buffer.getBytes();
-                System.out.println(buffer.toString());
-                byte[] responseData = handleRequest(requestData);
-                // 发送响应
-                socket.write(Buffer.buffer(responseData));
+            RecordParser parser = RecordParser.newFixed(8);
+            parser.setOutput(new Handler<Buffer>() {
+                int size = -1;
+                Buffer resultBuffer = Buffer.buffer();
+                @Override
+                public void handle(Buffer buffer) {
+                    if(size == -1) {
+                        size = buffer.getInt(4);
+                        parser.fixedSizeMode(size);
+                        resultBuffer.appendBuffer(buffer);
+                    }else {
+                        resultBuffer.appendBuffer(buffer);
+                        System.out.println(resultBuffer.toString());
+
+                        parser.fixedSizeMode(8);
+                        size = -1;
+                        resultBuffer = Buffer.buffer();
+                    }
+                }
             });
+            // 处理连接
+            socket.handler(parser);
         });
 
         // 启动 TCP 服务器
