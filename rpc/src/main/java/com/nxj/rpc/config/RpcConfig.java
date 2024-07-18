@@ -1,5 +1,7 @@
 package com.nxj.rpc.config;
 
+import com.nxj.rpc.loadbalance.LoadBalancerFactory;
+import com.nxj.rpc.loadbalance.LoadBalancerKeys;
 import com.nxj.rpc.serializer.SerializerKeys;
 import lombok.Data;
 
@@ -42,4 +44,9 @@ public class RpcConfig {
      * 注册中心配置
      */
     private RegistryConfig registryConfig = new RegistryConfig();
+
+    /**
+     * 负载均衡器
+     */
+    private String loadBalance = LoadBalancerKeys.ROUND_ROBIN;
 }
