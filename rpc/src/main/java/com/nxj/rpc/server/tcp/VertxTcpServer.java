@@ -29,30 +29,7 @@ public class VertxTcpServer implements HttpServer {
         NetServer server = vertx.createNetServer();
 
         // 处理请求
-        server.connectHandler(socket -> {
-            RecordParser parser = RecordParser.newFixed(8);
-            parser.setOutput(new Handler<Buffer>() {
-                int size = -1;
-                Buffer resultBuffer = Buffer.buffer();
-                @Override
-                public void handle(Buffer buffer) {
-                    if(size == -1) {
-                        size = buffer.getInt(4);
-                        parser.fixedSizeMode(size);
-                        resultBuffer.appendBuffer(buffer);
-                    }else {
-                        resultBuffer.appendBuffer(buffer);
-                        System.out.println(resultBuffer.toString());
-
-                        parser.fixedSizeMode(8);
-                        size = -1;
-                        resultBuffer = Buffer.buffer();
-                    }
-                }
-            });
-            // 处理连接
-            socket.handler(parser);
-        });
+        server.connectHandler(new TcpServerHandler());
 
         // 启动 TCP 服务器
         server.listen(port, result -> {
