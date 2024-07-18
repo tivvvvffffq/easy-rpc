@@ -1,29 +1,25 @@
 package com.nxj.rpc.proxy;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.IdUtil;
 import com.nxj.rpc.RpcApplication;
 import com.nxj.rpc.config.RpcConfig;
 import com.nxj.rpc.constant.RpcConstant;
+import com.nxj.rpc.loadbalance.LoadBalancer;
+import com.nxj.rpc.loadbalance.LoadBalancerFactory;
 import com.nxj.rpc.model.RpcRequest;
 import com.nxj.rpc.model.RpcResponse;
 import com.nxj.rpc.model.ServiceMetaInfo;
-import com.nxj.rpc.protocol.*;
 import com.nxj.rpc.registry.Registry;
 import com.nxj.rpc.registry.RegistryFactory;
 import com.nxj.rpc.serializer.Serializer;
 import com.nxj.rpc.serializer.SerializerFactory;
 import com.nxj.rpc.server.tcp.VertxTcpClient;
-import io.vertx.core.Vertx;
-import io.vertx.core.buffer.Buffer;
-import io.vertx.core.net.NetClient;
-import io.vertx.core.net.NetSocket;
 
-import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
+import java.util.Map;
 
 /**
  * 服务代理
@@ -61,10 +57,14 @@ public class ServiceProxy implements InvocationHandler {
                 throw new RuntimeException("暂无服务地址");
             }
 
-            ServiceMetaInfo selectedServiceMetaInfo = serviceMetaInfos.get(0);
+            // 负载均衡
+            LoadBalancer loadBalancer = LoadBalancerFactory.getInstance(rpcConfig.getLoadBalance());
+            Map<String, Object> requestParams = new HashMap<>();
+            requestParams.put("methodName", rpcRequest.getMethodName());
+            ServiceMetaInfo selectedServiceMetaInfo = loadBalancer.select(requestParams, serviceMetaInfos);
 
             // 发送 TCP 请求
-            RpcResponse rpcResponse = VertxTcpClient.doRequest(rpcRequest, serviceMetaInfo);
+            RpcResponse rpcResponse = VertxTcpClient.doRequest(rpcRequest, selectedServiceMetaInfo);
             return rpcResponse.getData();
         } catch (Exception e) {
             throw new RuntimeException("调用失败");
