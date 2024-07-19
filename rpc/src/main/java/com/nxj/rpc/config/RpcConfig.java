@@ -1,6 +1,6 @@
 package com.nxj.rpc.config;
 
-import com.nxj.rpc.loadbalance.LoadBalancerFactory;
+import com.nxj.rpc.fault.retry.RetryStrategyKeys;
 import com.nxj.rpc.loadbalance.LoadBalancerKeys;
 import com.nxj.rpc.serializer.SerializerKeys;
 import lombok.Data;
@@ -49,4 +49,9 @@ public class RpcConfig {
      * 负载均衡器
      */
     private String loadBalance = LoadBalancerKeys.ROUND_ROBIN;
+
+    /**
+     * 重试策略
+     */
+    private String retryStrategy = RetryStrategyKeys.NO;
 }
