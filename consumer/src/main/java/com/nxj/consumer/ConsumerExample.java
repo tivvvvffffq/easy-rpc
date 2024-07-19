@@ -2,21 +2,19 @@ package com.nxj.consumer;
 
 import com.nxj.common.model.User;
 import com.nxj.common.service.UserService;
-import com.nxj.rpc.config.RpcConfig;
+import com.nxj.rpc.bootstrap.CustomerBootStrap;
 import com.nxj.rpc.proxy.ServiceProxyFactory;
-import com.nxj.rpc.utils.ConfigUtils;
 
 /**
  * 服务消费者示例
  */
 public class ConsumerExample {
     public static void main(String[] args) {
-        RpcConfig rpc = ConfigUtils.loadConfig(RpcConfig.class, "easy-rpc");
-        System.out.println(rpc.getName());
+        CustomerBootStrap.init();
 
         UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
-        user.setName("tivvvv");
+        user.setName("狗哥");
 
         // 调用服务
         User newUser = userService.getUser(user);
@@ -26,6 +24,6 @@ public class ConsumerExample {
             System.out.println("user == null!");
         }
 
-        System.out.println(userService.getNumber());
+        System.out.println("number是 " + userService.getNumber());
     }
 }

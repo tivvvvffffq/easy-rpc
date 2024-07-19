@@ -15,8 +15,6 @@ import com.nxj.rpc.model.RpcResponse;
 import com.nxj.rpc.model.ServiceMetaInfo;
 import com.nxj.rpc.registry.Registry;
 import com.nxj.rpc.registry.RegistryFactory;
-import com.nxj.rpc.serializer.Serializer;
-import com.nxj.rpc.serializer.SerializerFactory;
 import com.nxj.rpc.server.tcp.VertxTcpClient;
 
 import java.lang.reflect.InvocationHandler;
