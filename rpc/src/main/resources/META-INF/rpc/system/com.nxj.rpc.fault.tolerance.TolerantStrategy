@@ -1,0 +1,4 @@
+failBack=com.nxj.rpc.fault.tolerance.FailBack
+failFast=com.nxj.rpc.fault.tolerance.FailFast
+failOver=com.nxj.rpc.fault.tolerance.FailOver
+failSafe=com.nxj.rpc.fault.tolerance.FailSafe
