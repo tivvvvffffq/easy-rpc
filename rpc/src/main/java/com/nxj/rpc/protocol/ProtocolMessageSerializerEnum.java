@@ -41,9 +41,9 @@ public enum ProtocolMessageSerializerEnum {
      * @return
      */
     public static ProtocolMessageSerializerEnum getEnumByKey(int key) {
-        for(ProtocolMessageSerializerEnum Enum: ProtocolMessageSerializerEnum.values()) {
-            if(Enum.key == key) {
-                return Enum;
+        for(ProtocolMessageSerializerEnum anEnum: ProtocolMessageSerializerEnum.values()) {
+            if(anEnum.key == key) {
+                return anEnum;
             }
         }
         return null;

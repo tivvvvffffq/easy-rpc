@@ -1,4 +1,4 @@
-package com.nxj.rpc.server;
+package com.nxj.rpc.server.http;
 
 import com.nxj.rpc.RpcApplication;
 import com.nxj.rpc.model.RpcRequest;

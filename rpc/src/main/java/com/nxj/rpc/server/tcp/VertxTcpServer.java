@@ -1,23 +1,15 @@
 package com.nxj.rpc.server.tcp;
 
-import com.nxj.rpc.server.HttpServer;
 import io.vertx.core.Vertx;
 import io.vertx.core.net.NetServer;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Vertx tcp 服务器
+ */
 @Slf4j
-public class VertxTcpServer implements HttpServer {
+public class VertxTcpServer {
 
-    /**
-     * 处理请求，根据requestData构造Response
-     * @param requestData
-     * @return
-     */
-    private byte[] handleRequest(byte[] requestData) {
-        return "Hello, client!".getBytes();
-    }
-
-    @Override
     public void doStart(int port) {
         // 创建vertx实例
         Vertx vertx = Vertx.vertx();

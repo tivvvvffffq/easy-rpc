@@ -14,7 +14,7 @@ public class RegistryFactory {
     /**
      * 默认注册中心
      */
-    private static final Registry DEFAULT_REGISTRY = SpiLoader.getInstance(Registry.class, RegistryKeys.ETCD);
+    private static final Registry DEFAULT_REGISTRY = new EtcdRegistry();
 
     /**
      * 获取实例

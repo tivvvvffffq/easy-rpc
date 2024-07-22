@@ -27,7 +27,7 @@ public class RpcApplication {
         RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
         Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
         registry.init(registryConfig);
-        log.info("registry init, config = {}", registryConfig.toString());
+        log.info("registry init, config = {}", registryConfig);
 
         // 创建 shutdown hook，jvm退出时会自动执行 registry 的 destroy 方法
         Runtime.getRuntime().addShutdownHook(new Thread(registry::destroy));

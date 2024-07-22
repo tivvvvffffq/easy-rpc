@@ -10,8 +10,10 @@ import com.nxj.rpc.proxy.ServiceProxyFactory;
  */
 public class ConsumerExample {
     public static void main(String[] args) {
+        // 初始化
         CustomerBootStrap.init();
 
+        // 获取代理对象
         UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
         user.setName("狗哥");

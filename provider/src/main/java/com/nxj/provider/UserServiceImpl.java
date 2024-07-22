@@ -9,7 +9,7 @@ import com.nxj.common.service.UserService;
 public class UserServiceImpl implements UserService {
     @Override
     public User getUser(User user) {
-        System.out.println("用户: " + user.getName());
+        System.out.println("用户的名字是: " + user.getName());
         return user;
     }
 }

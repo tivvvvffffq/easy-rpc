@@ -6,5 +6,5 @@ package com.nxj.rpc.registry;
 public interface RegistryKeys {
     String ETCD = "etcd";
 
-    String ZOOKEERPER = "zookeeper";
+    String ZOOKEEPER = "zookeeper";
 }

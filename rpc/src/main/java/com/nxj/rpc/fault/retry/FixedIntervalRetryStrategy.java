@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * 固定时间重试
  */
 @Slf4j
-public class FixedIntervalRetryStrategy implements RetryStrategy{
+public class FixedIntervalRetryStrategy implements RetryStrategy {
     @Override
     public RpcResponse doRetry(Callable<RpcResponse> callable) throws Exception {
         Retryer<RpcResponse> retryer = RetryerBuilder.<RpcResponse>newBuilder()

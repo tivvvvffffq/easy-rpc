@@ -15,7 +15,7 @@ public class ServiceProxyFactory {
      * @param <T>
      */
     public static <T> T getProxy(Class<T> serviceClass) {
-        if(RpcApplication.getRpcConfig().isMock()) {
+        if (RpcApplication.getRpcConfig().isMock()) {
             return getMockProxy(serviceClass);
         }
 
@@ -26,10 +26,10 @@ public class ServiceProxyFactory {
     }
 
     /**
-     * 根据服务类获取mock代理对象
+     * 根据服务类获取 Mock 代理对象
      * @param serviceClass
-     * @return
      * @param <T>
+     * @return
      */
     public static <T> T getMockProxy(Class<T> serviceClass) {
         return (T) Proxy.newProxyInstance(
