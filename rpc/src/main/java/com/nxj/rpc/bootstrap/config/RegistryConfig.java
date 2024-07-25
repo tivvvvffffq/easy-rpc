@@ -1,4 +1,4 @@
-package com.nxj.rpc.config;
+package com.nxj.rpc.bootstrap.config;
 
 import com.nxj.rpc.registry.RegistryKeys;
 import lombok.Data;

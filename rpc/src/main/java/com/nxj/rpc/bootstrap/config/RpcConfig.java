@@ -1,4 +1,4 @@
-package com.nxj.rpc.config;
+package com.nxj.rpc.bootstrap.config;
 
 import com.nxj.rpc.fault.retry.RetryStrategyKeys;
 import com.nxj.rpc.fault.tolerance.TolerantStrategyKeys;

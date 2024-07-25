@@ -2,7 +2,7 @@ package com.nxj.rpc.proxy;
 
 import cn.hutool.core.collection.CollUtil;
 import com.nxj.rpc.RpcApplication;
-import com.nxj.rpc.config.RpcConfig;
+import com.nxj.rpc.bootstrap.config.RpcConfig;
 import com.nxj.rpc.constant.RpcConstant;
 import com.nxj.rpc.fault.retry.RetryStrategy;
 import com.nxj.rpc.fault.retry.RetryStrategyFactory;
@@ -63,7 +63,7 @@ public class ServiceProxy implements InvocationHandler {
         requestParams.put("methodName", rpcRequest.getMethodName());
         ServiceMetaInfo selectedServiceMetaInfo = loadBalancer.select(requestParams, serviceMetaInfoList);
 
-        // 发送 TCP 请求
+        // 发送 Tcp 请求
         RpcResponse rpcResponse;
         try {
             RetryStrategy retryStrategy = RetryStrategyFactory.getInstance(rpcConfig.getRetryStrategy());

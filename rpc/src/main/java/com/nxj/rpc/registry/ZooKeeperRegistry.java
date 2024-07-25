@@ -1,7 +1,7 @@
 package com.nxj.rpc.registry;
 
 import cn.hutool.core.collection.ConcurrentHashSet;
-import com.nxj.rpc.config.RegistryConfig;
+import com.nxj.rpc.bootstrap.config.RegistryConfig;
 import com.nxj.rpc.model.ServiceMetaInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
@@ -133,7 +133,6 @@ public class ZooKeeperRegistry implements Registry {
 
     /**
      * 监听（消费端）
-     *
      * @param serviceNodeKey 服务节点 key
      */
     @Override

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 
 /**
- * TCP 请求处理器
+ * Tcp 请求处理器
  */
 public class TcpServerHandler implements Handler<NetSocket> {
 

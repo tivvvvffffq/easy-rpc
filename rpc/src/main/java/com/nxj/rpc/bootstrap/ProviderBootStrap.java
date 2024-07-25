@@ -1,8 +1,8 @@
 package com.nxj.rpc.bootstrap;
 
 import com.nxj.rpc.RpcApplication;
-import com.nxj.rpc.config.RegistryConfig;
-import com.nxj.rpc.config.RpcConfig;
+import com.nxj.rpc.bootstrap.config.RegistryConfig;
+import com.nxj.rpc.bootstrap.config.RpcConfig;
 import com.nxj.rpc.model.ServiceMetaInfo;
 import com.nxj.rpc.model.ServiceRegisterInfo;
 import com.nxj.rpc.registry.LocalRegistry;

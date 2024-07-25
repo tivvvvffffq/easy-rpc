@@ -1,7 +1,7 @@
 package com.nxj.rpc;
 
-import com.nxj.rpc.config.RegistryConfig;
-import com.nxj.rpc.config.RpcConfig;
+import com.nxj.rpc.bootstrap.config.RegistryConfig;
+import com.nxj.rpc.bootstrap.config.RpcConfig;
 import com.nxj.rpc.constant.RpcConstant;
 import com.nxj.rpc.registry.Registry;
 import com.nxj.rpc.registry.RegistryFactory;

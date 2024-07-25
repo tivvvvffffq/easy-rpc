@@ -1,6 +1,6 @@
 package com.nxj.rpc.registry;
 
-import com.nxj.rpc.config.RegistryConfig;
+import com.nxj.rpc.bootstrap.config.RegistryConfig;
 import com.nxj.rpc.model.ServiceMetaInfo;
 
 import java.util.List;

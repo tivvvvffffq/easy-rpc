@@ -16,19 +16,19 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 /**
- * Vertx TCP 请求客户端
+ * Vertx Tcp 请求客户端
  */
 public class VertxTcpClient {
 
     public static RpcResponse doRequest(RpcRequest rpcRequest, ServiceMetaInfo serviceMetaInfo) throws InterruptedException, ExecutionException {
-        // 发送 TCP 请求
+        // 发送 Tcp 请求
         Vertx vertx = Vertx.vertx();
         NetClient netClient = vertx.createNetClient();
         CompletableFuture<RpcResponse> responseFuture = new CompletableFuture<>();
         netClient.connect(serviceMetaInfo.getServicePort(), serviceMetaInfo.getServiceHost(),
                 result -> {
                     if (!result.succeeded()) {
-                        System.err.println("Failed to connect to TCP server");
+                        System.err.println("Failed to connect to Tcp server");
                         return;
                     }
                     NetSocket socket = result.result();

@@ -14,18 +14,18 @@ public class VertxTcpServer {
         // 创建vertx实例
         Vertx vertx = Vertx.vertx();
 
-        // 创建 TCP 服务器
+        // 创建 Tcp 服务器
         NetServer server = vertx.createNetServer();
 
         // 处理请求
         server.connectHandler(new TcpServerHandler());
 
-        // 启动 TCP 服务器
+        // 启动 Tcp 服务器
         server.listen(port, result -> {
             if(result.succeeded()) {
-                System.out.println("TCP server started on " + port);
+                System.out.println("Tcp server started on " + port);
             }else {
-                System.err.println("Failed to start TCP server: " + result.cause());
+                System.err.println("Failed to start Tcp server: " + result.cause());
             }
         });
     }
